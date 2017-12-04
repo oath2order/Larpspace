@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
   getDatabase: function(userId) {
-    console.log(userId);
     return axios.get("api/getgames/" + userId);
   },
   getUser: function() {
@@ -18,6 +17,14 @@ export default {
       cp: nCp,
       desc: nDesc,
       userid: nId
+    });
+  },
+  newMasterSkill: function(nName, nACost, nText, nGameId) {
+    return axios.post("/api/newskill", {
+      name: nName,
+      attcost: nACost,
+      text: nText,
+      gameid: nGameId
     });
   }
 };

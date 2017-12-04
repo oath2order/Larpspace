@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { Card, CardTitle } from "reactstrap";
 import withauth from "../HOC/withauth.js";
 import CreateGameForm from "../components/CreateGameForm";
+import Gamelist from "../components/Gamelist";
 
 const cardStyle = {
   width: "75%",
@@ -21,10 +22,10 @@ class Owner extends React.Component {
   };
 
   loadDB = () => {
-    console.log(this.state)
+    //console.log(this.state)
     API.getDatabase(this.state.userId).then(res => {
       this.setState({ games: res.data });
-      console.log(this.state);
+      //console.log(this.state);
     });
   };
   
@@ -35,14 +36,16 @@ class Owner extends React.Component {
     });
   };
   render() {
-    return (
-      <div className="container">
+    return <div className="container">
         <Card style={cardStyle}>
           <CardTitle>Create a new Game</CardTitle>
           <CreateGameForm />
         </Card>
-      </div>
-    );
+        <Card style={cardStyle}>
+          <CardTitle>Games you Own</CardTitle>
+          <Gamelist games={this.state.games}/>
+        </Card>
+      </div>;
   }
 }
 

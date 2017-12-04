@@ -21,6 +21,7 @@ var orm = {
     });
   },
   insertOne: function(table, cols, vals, cb) {
+    console.log(queryString);
     var queryString = "INSERT INTO " + table;
     queryString += " (";
     queryString += cols.toString();

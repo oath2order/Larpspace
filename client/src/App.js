@@ -18,7 +18,7 @@ const App = () => (
           <Route exact path="/" component={Home} />
           <Route exact path="/Owner" component={Owner} />
           <Route exact path="/Player" component={Player} />
-          <Route exact path="/Builder" component={Builder} />
+          <Route path="/Builder/:id" exact component={Builder} />
         </Background>
       </div>
     </Auth>
